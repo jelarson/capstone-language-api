@@ -14,6 +14,7 @@ env = Env()
 env.read_env()
 DATABASE_URL = env("DATABASE_URL")
 
+# test
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
