@@ -10,14 +10,15 @@ app = Flask(__name__)
 CORS(app)
 heroku = Heroku(app)
 
-# env = Env()
-# env.read_env()
-# DATABASE_URL = env("DATABASE_URL")
+env = Env()
+env.read_env()
+DATABASE_URL = env("DATABASE_URL")
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(basedir, 'app.sqlite')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
+#     os.path.join(basedir, 'app.sqlite')
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
